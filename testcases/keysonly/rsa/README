@@ -1,0 +1,32 @@
+RSA private key test cases
+
+To generate a public key if one is needed, use
+openssl rsa -in $i -pubout -out ${i}.pub
+
+By default, values are plausible unless mentioned in the case.
+
+Case descriptions:
+
+0exp            All key information except the modulus is 0
+0mod            The modulus is 0
+0priv           The private exponent is 0
+0pub            The public exponent is 0
+1priv           The private exponent is 1
+1pub            The public exponent is 1
+2priv           The private exponent is 2
+2pub            The public exponent is 2
+4pub            The public exponent is 4
+badcoeff        The coefficient parameter is corrupted
+bade1           The exponent1 (dp) parameter is corrupted
+bade2           The exponent2 (dq) parameter is corrupted
+badp1           The prime1 (p) parameter is corrupted
+badb2           The prime2 (q) parameter is corrupted
+badpriv         The private exponent (d) is corrupted
+e16385_m65536   e is 16385 bits all one, and m is 65536 bits; key is valid
+legit1024       An undoctored 1024-bit RSA key, e=65537
+p1mod           The modulus is corrupted by adding one
+revexp          The two exponent parameters dp and dq are reversed
+revpq           The two prime parameters are reversed
+revprivexp      The private exponent is 65537, with a corresponding valid e
+verFFFF         The version field is set to a reserved value 0xFFFF
+verybig         A valid 32769 bit key with e is 32768 bits all one
